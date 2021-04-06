@@ -26,6 +26,8 @@ namespace DR.Services.Emails.Data.Models
         [Required]
         public string Body { get; set; }
 
+        public string Signature { get; set; }
+
         public EmailStatus EmailStatus { get; set; }
         public DateTime? SentDateUtc { get; set; }
         public string ErrorMessage { get; set; }

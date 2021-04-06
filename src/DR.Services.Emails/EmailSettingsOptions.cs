@@ -11,6 +11,7 @@ namespace DR.Services.Emails
         public string Password { get; set; }
         public string EmailAddress { get; set; }
         public string FromName { get; set; }
+        public string Signature { get; set; }
         public string TestRecipients { get; set; }
     }
 }

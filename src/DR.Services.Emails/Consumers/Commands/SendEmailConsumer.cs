@@ -54,6 +54,7 @@ namespace DR.Services.Emails.Consumers.Commands
                     Bcc = context.Message.Bcc,
                     Subject = context.Message.Subject,
                     Body = context.Message.Body,
+                    Signature = context.Message.Signature,
                     CreateDateUtc = DateTime.UtcNow,
                     LastUpdateUtc = DateTime.UtcNow,
                     EmailStatus = EmailStatus.Pending
@@ -87,6 +88,7 @@ namespace DR.Services.Emails.Consumers.Commands
             var recipients = string.Empty;
             var cc = string.Empty;
             var bcc = string.Empty;
+
             if (env.IsProduction())
             {
                 recipients = email.Recipients;
@@ -124,15 +126,17 @@ namespace DR.Services.Emails.Consumers.Commands
 
                 await SetRecipients(message, recipients, cc, bcc);
 
-                body += email.Body;
+                body += email.Body + GetSignature(email, emailSettings);
 
                 if (!body.Contains("<html"))
                 {
                     body = "<html><body style=\"font-family: Calibri; font-size: 12pt;\">" + body + "</body></html>";
                 }
 
-                var bodyBuilder = new BodyBuilder();
-
+                var bodyBuilder = new BodyBuilder
+                {
+                    HtmlBody = body
+                };
                 message.Body = bodyBuilder.ToMessageBody();
 
                 using var smtp = new MailKit.Net.Smtp.SmtpClient();
@@ -142,7 +146,7 @@ namespace DR.Services.Emails.Consumers.Commands
                 };
                 smtp.ServerCertificateValidationCallback = (s, c, h, e) => true;
 
-                smtp.Connect(emailSettings.Host, emailSettings.Port);
+                smtp.Connect(emailSettings.Host, emailSettings.Port, MailKit.Security.SecureSocketOptions.StartTls);
                 smtp.Authenticate(emailSettings.Username, emailSettings.Password);
                 smtp.Send(message);
                 smtp.Disconnect(true);
@@ -179,6 +183,18 @@ namespace DR.Services.Emails.Consumers.Commands
             }
 
             return Task.CompletedTask;
+        }
+
+        private string GetSignature(Email email, EmailSettingsOptions emailSettings)
+        {
+            if (!string.IsNullOrEmpty(email.Signature))
+            {
+                return email.Signature;
+            }
+            else
+            {
+                return emailSettings.Signature;
+            }
         }
     }
 }
