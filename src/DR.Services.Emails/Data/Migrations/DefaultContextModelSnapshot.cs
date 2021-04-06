@@ -15,9 +15,9 @@ namespace DR.Services.Emails.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .UseIdentityByDefaultColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
-                .HasAnnotation("ProductVersion", "5.0.4")
-                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+                .HasAnnotation("ProductVersion", "5.0.2");
 
             modelBuilder.Entity("DR.Services.Emails.Data.Models.Email", b =>
                 {
@@ -56,6 +56,9 @@ namespace DR.Services.Emails.Data.Migrations
 
                     b.Property<DateTime?>("SentDateUtc")
                         .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("Signature")
+                        .HasColumnType("text");
 
                     b.Property<string>("Subject")
                         .IsRequired()

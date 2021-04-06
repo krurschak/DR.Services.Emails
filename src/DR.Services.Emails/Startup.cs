@@ -40,7 +40,6 @@ namespace DR.Services.Emails
 
             // Add Database
             services
-                .AddEntityFrameworkNpgsql()
                 .AddDbContext<DefaultContext>(config =>
                 {
                     config.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
