@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="MailKit" Version="2.11.1" />
-    <PackageReference Include="MassTransit.AspNetCore" Version="7.1.6" />
+    <PackageReference Include="DR.Packages.MassTransit" Version="1.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.2" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.2">
@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\git_modules\DR.Components.Emails\src\DR.Components.Emails\DR.Components.Emails.csproj" />
-    <ProjectReference Include="..\..\git_modules\DR.Packages.MassTransit\src\DR.Packages.MassTransit.csproj" />
   </ItemGroup>
 
 </Project>

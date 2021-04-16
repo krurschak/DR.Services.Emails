@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DR.Services.Emails", "src\DR.Services.Emails\DR.Services.Emails.csproj", "{5233D65C-38F9-4899-824F-03709AFB2B46}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DR.Packages.MassTransit", "git_modules\DR.Packages.MassTransit\src\DR.Packages.MassTransit.csproj", "{10BD9F63-1562-41E6-BE81-A111C1FC83C1}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DR.Components.Emails", "git_modules\DR.Components.Emails\src\DR.Components.Emails\DR.Components.Emails.csproj", "{EF111113-9604-43D0-AC6F-0798BCE02617}"
 EndProject
 Global
@@ -19,10 +17,6 @@ Global
 		{5233D65C-38F9-4899-824F-03709AFB2B46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5233D65C-38F9-4899-824F-03709AFB2B46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5233D65C-38F9-4899-824F-03709AFB2B46}.Release|Any CPU.Build.0 = Release|Any CPU
-		{10BD9F63-1562-41E6-BE81-A111C1FC83C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{10BD9F63-1562-41E6-BE81-A111C1FC83C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{10BD9F63-1562-41E6-BE81-A111C1FC83C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{10BD9F63-1562-41E6-BE81-A111C1FC83C1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EF111113-9604-43D0-AC6F-0798BCE02617}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EF111113-9604-43D0-AC6F-0798BCE02617}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF111113-9604-43D0-AC6F-0798BCE02617}.Release|Any CPU.ActiveCfg = Release|Any CPU

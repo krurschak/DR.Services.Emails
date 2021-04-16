@@ -1,6 +1,3 @@
-[submodule "git_modules/DR.Packages.MassTransit"]
-	path = git_modules/DR.Packages.MassTransit
-	url = git@github.com:krurschak/DR.Packages.MassTransit.git
 [submodule "git_modules/DR.Components.Emails"]
 	path = git_modules/DR.Components.Emails
 	url = git@github.com:krurschak/DR.Components.Emails.git
